@@ -25,14 +25,13 @@ Drag a UIView in the xib and change its type to QNDAnimatedView.
 
 ## Under code
 
-  UIView<QNDAnimatedView>* animatedView = [QNDAnimations newViewAnimated:frame];
+	
+	UIView<QNDAnimatedView>* animatedView = [QNDAnimations newViewAnimated:frame];
 
 	[animatedView animateWithDurations:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
-
 	[animatedView rewind];
 
 	[animatedView animateWithDurations:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
-
 	[animatedView toggle];
 
 
