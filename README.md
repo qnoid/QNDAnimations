@@ -1,7 +1,7 @@
-
 # Introduction
 This is an implementation of a UIView that introduces the idea of "rewinding" in animations. Rewinding allows for past animations to be played again.
 
+[Demo][2]
 <iframe width="420" height="315" src="http://www.youtube.com/embed/Y_OuP9mpfMY" frameborder="0" allowfullscreen></iframe>
 
 The current implementation of rewinding also supports "toggling" an animation. That is, given an animation toggle will "rewind" and "playback" this animation for every pair call.
@@ -45,6 +45,7 @@ Open 'QNDAnimations.xcworkspace' and run the QNDAnimationsApp target.
 Ability to augment an existing UIView as animated.
 
 [1]: http://qnoid.com
+[2]: http://www.youtube.com/watch?v=Y_OuP9mpfMY&feature=youtu.be
 
 # Licence
 
