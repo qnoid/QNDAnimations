@@ -46,6 +46,8 @@
         return nil;
     }
     
+    self.title = @"QNDAnimatedView";
+    
 return self;
 }
 

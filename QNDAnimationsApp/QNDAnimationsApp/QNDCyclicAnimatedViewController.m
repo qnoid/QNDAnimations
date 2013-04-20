@@ -28,9 +28,6 @@
 #import "QNDViewAnimationKeyFrame.h"
 
 @interface QNDCyclicAnimatedViewController ()
-@property(nonatomic, weak) IBOutlet UIBarButtonItem *toggleBarButtonItem;
-@property(nonatomic, weak) IBOutlet UIBarButtonItem *rewindBarButtonItem;
-@property(nonatomic, weak) IBOutlet UIBarButtonItem *forwardBarButtonItem;
 @property(nonatomic, weak) IBOutlet QNDAnimatedView *animatedView;
 @property(nonatomic, strong) QNDViewAnimationKeyFrame *viewAnimationKeyFrames;
 -(id)initWithBundle:(NSBundle *)nibBundleOrNil;
@@ -91,7 +88,6 @@
 -(IBAction)rewind:(UIBarButtonItem*)rewindBarButtonItem
 {
     self.viewAnimationKeyFrames = self.viewAnimationKeyFrames.previousViewAnimationKeyFrame;
-    self.toggleBarButtonItem.enabled = self.rewindBarButtonItem.enabled = self.forwardBarButtonItem.enabled = self.viewAnimationKeyFrames != nil;
     
     [self.animatedView rewind];
 }
@@ -100,7 +96,6 @@
 {
     [self.animatedView animateWithDuration:0.5 animation:self.viewAnimationKeyFrames.viewAnimationBlock];
     self.viewAnimationKeyFrames = self.viewAnimationKeyFrames.nextViewAnimationKeyFrame;
-    self.toggleBarButtonItem.enabled = self.rewindBarButtonItem.enabled = self.forwardBarButtonItem.enabled = self.viewAnimationKeyFrames != nil;
 }
 
 -(IBAction)didTouchUpInsideDismiss:(UIBarButtonItem*)dismissBarButtonItem{

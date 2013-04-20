@@ -153,30 +153,6 @@
 					<int key="connectionID">16</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">forwardBarButtonItem</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="903157642"/>
-					</object>
-					<int key="connectionID">21</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">toggleBarButtonItem</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="731037028"/>
-					</object>
-					<int key="connectionID">22</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">rewindBarButtonItem</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="735571839"/>
-					</object>
-					<int key="connectionID">23</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">rewind:</string>
 						<reference key="source" ref="735571839"/>
@@ -351,30 +327,17 @@
 							<string key="candidateClassName">UIBarButtonItem</string>
 						</object>
 					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="animatedView">QNDAnimatedView</string>
-						<string key="forwardBarButtonItem">UIBarButtonItem</string>
-						<string key="rewindBarButtonItem">UIBarButtonItem</string>
-						<string key="toggleBarButtonItem">UIBarButtonItem</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="animatedView">
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">animatedView</string>
+						<string key="NS.object.0">QNDAnimatedView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">animatedView</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
 							<string key="name">animatedView</string>
 							<string key="candidateClassName">QNDAnimatedView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="forwardBarButtonItem">
-							<string key="name">forwardBarButtonItem</string>
-							<string key="candidateClassName">UIBarButtonItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="rewindBarButtonItem">
-							<string key="name">rewindBarButtonItem</string>
-							<string key="candidateClassName">UIBarButtonItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="toggleBarButtonItem">
-							<string key="name">toggleBarButtonItem</string>
-							<string key="candidateClassName">UIBarButtonItem</string>
-						</object>
-					</dictionary>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/QNDCyclicAnimatedViewController.h</string>
