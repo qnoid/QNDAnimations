@@ -12,10 +12,10 @@ A series of technical posts will follow, on [how to think of UIKit Animations][1
 
 # What is included
 
-* libQNDAnimations
+* libQNDAnimations    
 The 'QNDAnimations.xcodeproj' builds a static library 'libQNDAnimations.a'
 
-* QNDAnimationsApp
+* QNDAnimationsApp    
 The 'QNDAnimationsApp.xcodeproj' is the .app demoing the QNDAnimatedView.
 
 # How to use
