@@ -93,7 +93,7 @@ return viewAnimation;
 }
 
 
--(void)animate:(UIView*)view
+-(void)animate:(UIView*)view completion:(QNDViewAnimationCompletionBlock)completion
 {
     if(!self.viewAnimationBlock){
         return;
@@ -103,7 +103,7 @@ return viewAnimation;
     
     [UIView animateWithDuration:self.duration animations:^{
         self.viewAnimationBlock(wView);
-    }];
+    } completion:completion];
 }
 
 -(NSString *)description{
@@ -193,7 +193,12 @@ return self;
 
 -(void)animate:(QNDViewAnimation*)viewAnimation
 {
-    [viewAnimation animate:self];
+    [self animate:viewAnimation completion:nil];
+}
+
+-(void)animate:(QNDViewAnimation*)viewAnimation completion:(QNDViewAnimationCompletionBlock)completion
+{
+    [viewAnimation animate:self completion:completion];
 }
 
 - (void)animateWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock {
@@ -205,12 +210,16 @@ return self;
     [self animate:viewAnimation];
 }
 
--(QNDViewAnimation*)rewind
+-(QNDViewAnimation*)rewind {
+return [self rewind:nil];
+}
+
+-(QNDViewAnimation*)rewind:(QNDViewAnimationCompletionBlock)completion
 {
     QNDViewAnimation *previousAnimation = self.animations.previous;
-    [self animate:previousAnimation];
+    [self animate:previousAnimation completion:completion];
     self.animations = previousAnimation;
-return self.animations;
+    return self.animations;
 }
 
 -(void)toggle

@@ -34,6 +34,7 @@
  @param view the view to operate the animation block on
  */
 typedef void(^QNDViewAnimationBlock)(UIView* view);
+typedef void(^QNDViewAnimationCompletionBlock)(BOOL finished);
 
 extern QNDViewAnimationBlock const QNDViewAnimationBlockDockLeft;
 extern QNDViewAnimationBlock QNDViewAnimationBlockOnFrame(CGRect frame);
@@ -58,6 +59,18 @@ extern QNDViewAnimationBlock QNDViewAnimationBlockOnFrame(CGRect frame);
  @return the animation played
  */
 -(QNDViewAnimation*)rewind;
+
+/**
+ Plays the animation block that preceded the one given in the last call of #animateWithDuration:animation:
+ Will get a callback once the animation is finished.
+ 
+ @postcondion the last played animation is lost.
+ @param completion callback when rewind is finished
+ @return the animation played
+ @see UIView#animateWithDuration:animations:completion:
+
+ */
+-(QNDViewAnimation*)rewind:(QNDViewAnimationCompletionBlock)completion;
 
 /**
  Plays the previous animation while demoting the current one behind. 
