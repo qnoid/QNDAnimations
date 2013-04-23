@@ -3,7 +3,8 @@
 //  QNDAnimations
 //
 //  Created by Markos Charatzas on 18/04/2013.
-//  Copyright (c) 2013 Markos Charatzas (@qnoid).
+//  Copyright (c) 2013 Markos Charatzas (qnoid.com).
+//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
 //  the Software without restriction, including without limitation the rights to
@@ -27,6 +28,10 @@
 
 @protocol QNDAnimatedView;
 
+/**
+ Creates instances of QNDAnimatedView(s)
+ 
+ */
 @interface QNDAnimations : NSObject
 
 /**
@@ -34,5 +39,12 @@
  @return a new UIView instance that supports QNDAnimatedView
  */
 -(UIView<QNDAnimatedView>*)newViewAnimated:(CGRect)frame;
+
+/**
+ 
+ @param view the view to augment as an QNDAnimatedView
+ @return a new UIView instance that supports the QNDAnimatedView protocol
+ */
+-(UIView<QNDAnimatedView>*)animateView:(UIView*)view;
 
 @end

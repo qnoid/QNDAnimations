@@ -3,7 +3,8 @@
 //  QNDAnimations
 //
 //  Created by Markos Charatzas on 18/04/2013.
-//  Copyright (c) 2013 Markos Charatzas (@qnoid).
+//  Copyright (c) 2013 Markos Charatzas (qnoid.com).
+//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
 //  the Software without restriction, including without limitation the rights to
@@ -25,11 +26,16 @@
 
 #import "QNDAnimations.h"
 #import "QNDAnimatedView.h"
+#import "QNDAnimatedViewProxy.h"
 
 @implementation QNDAnimations
 
 -(UIView<QNDAnimatedView>*)newViewAnimated:(CGRect)frame {
 return [[QNDAnimatedView alloc] initWithFrame:frame];
+}
+
+-(UIView<QNDAnimatedView>*)animateView:(UIView*)view {
+return [QNDAnimatedViewProxy newAnimatedViewProxy:view];
 }
 
 @end

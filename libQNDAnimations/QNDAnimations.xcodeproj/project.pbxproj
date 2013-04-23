@@ -7,19 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD1227A21725CB8900C56C37 /* libPods-UnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD12279E1725CAEB00C56C37 /* libPods-UnitTests.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BD1227A91725DD6A00C56C37 /* QNDViewAnimationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1227A81725DD6A00C56C37 /* QNDViewAnimationTest.m */; };
+		BD1227AC1725EF6500C56C37 /* QNDViewAnimationBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1227AB1725EF6500C56C37 /* QNDViewAnimationBuilderTest.m */; };
 		BD6695E21720B1DB00A81315 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6695E11720B1DB00A81315 /* Foundation.framework */; };
 		BD6695E91720B1DB00A81315 /* QNDAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6695E81720B1DB00A81315 /* QNDAnimations.m */; };
 		BD6695F11720B1DC00A81315 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6695F01720B1DC00A81315 /* SenTestingKit.framework */; };
 		BD6695F41720B1DC00A81315 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6695E11720B1DB00A81315 /* Foundation.framework */; };
 		BD6695F71720B1DC00A81315 /* libQNDAnimations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6695DE1720B1DB00A81315 /* libQNDAnimations.a */; };
 		BD6695FD1720B1DC00A81315 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD6695FB1720B1DC00A81315 /* InfoPlist.strings */; };
-		BD6696001720B1DC00A81315 /* QNDAnimationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6695FF1720B1DC00A81315 /* QNDAnimationsTests.m */; };
 		BD6696421720B4DF00A81315 /* QNDAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6696411720B4DF00A81315 /* QNDAnimatedView.m */; };
 		BD6696471721EF8A00A81315 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6696461721EF8A00A81315 /* UIKit.framework */; };
 		BD6696511721F45400A81315 /* QNDAnimations.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BD6695E61720B1DB00A81315 /* QNDAnimations.h */; };
 		BD6696521721F45400A81315 /* QNDAnimatedView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BD6696401720B4DF00A81315 /* QNDAnimatedView.h */; };
-		BDBC13231722E8A8006D7FBD /* QNDViewAnimationKeyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBC13221722E8A8006D7FBD /* QNDViewAnimationKeyFrame.m */; };
-		BDBC13241722E8A8006D7FBD /* QNDViewAnimationKeyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBC13221722E8A8006D7FBD /* QNDViewAnimationKeyFrame.m */; };
+		BD7C27DC1724056B009D26EE /* QNDAnimatedViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7C27DB1724056B009D26EE /* QNDAnimatedViewProxy.m */; };
+		BD7C27DF17240EAF009D26EE /* QNDAnimatedViewProxyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7C27DE17240EAF009D26EE /* QNDAnimatedViewProxyTest.m */; };
+		BD7C27E017241224009D26EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6696461721EF8A00A81315 /* UIKit.framework */; };
+		BD7C27E21724126A009D26EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD7C27E11724126A009D26EE /* CoreGraphics.framework */; };
+		BD7C27E517241449009D26EE /* QNDAnimatedViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7C27E417241449009D26EE /* QNDAnimatedViewTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8D016465E987438EB6E80279 /* Pods-UnitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitTests.xcconfig"; path = "Pods/Pods-UnitTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		BD12279E1725CAEB00C56C37 /* libPods-UnitTests.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-UnitTests.a"; path = "Libraries/libPods-UnitTests.a"; sourceTree = "<group>"; };
+		BD1227A81725DD6A00C56C37 /* QNDViewAnimationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDViewAnimationTest.m; sourceTree = "<group>"; };
+		BD1227AB1725EF6500C56C37 /* QNDViewAnimationBuilderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDViewAnimationBuilderTest.m; sourceTree = "<group>"; };
 		BD6695DE1720B1DB00A81315 /* libQNDAnimations.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQNDAnimations.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6695E11720B1DB00A81315 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BD6695E51720B1DB00A81315 /* QNDAnimations-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QNDAnimations-Prefix.pch"; sourceTree = "<group>"; };
@@ -56,13 +65,14 @@
 		BD6695F01720B1DC00A81315 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		BD6695FA1720B1DC00A81315 /* QNDAnimationsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QNDAnimationsTests-Info.plist"; sourceTree = "<group>"; };
 		BD6695FC1720B1DC00A81315 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BD6695FE1720B1DC00A81315 /* QNDAnimationsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNDAnimationsTests.h; sourceTree = "<group>"; };
-		BD6695FF1720B1DC00A81315 /* QNDAnimationsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNDAnimationsTests.m; sourceTree = "<group>"; };
 		BD6696401720B4DF00A81315 /* QNDAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDAnimatedView.h; sourceTree = "<group>"; };
 		BD6696411720B4DF00A81315 /* QNDAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDAnimatedView.m; sourceTree = "<group>"; };
 		BD6696461721EF8A00A81315 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		BDBC13211722E8A8006D7FBD /* QNDViewAnimationKeyFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDViewAnimationKeyFrame.h; sourceTree = "<group>"; };
-		BDBC13221722E8A8006D7FBD /* QNDViewAnimationKeyFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDViewAnimationKeyFrame.m; sourceTree = "<group>"; };
+		BD7C27DA1724056B009D26EE /* QNDAnimatedViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDAnimatedViewProxy.h; sourceTree = "<group>"; };
+		BD7C27DB1724056B009D26EE /* QNDAnimatedViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDAnimatedViewProxy.m; sourceTree = "<group>"; };
+		BD7C27DE17240EAF009D26EE /* QNDAnimatedViewProxyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDAnimatedViewProxyTest.m; sourceTree = "<group>"; };
+		BD7C27E11724126A009D26EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BD7C27E417241449009D26EE /* QNDAnimatedViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDAnimatedViewTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,22 +89,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD7C27E21724126A009D26EE /* CoreGraphics.framework in Frameworks */,
+				BD7C27E017241224009D26EE /* UIKit.framework in Frameworks */,
 				BD6695F11720B1DC00A81315 /* SenTestingKit.framework in Frameworks */,
 				BD6695F41720B1DC00A81315 /* Foundation.framework in Frameworks */,
 				BD6695F71720B1DC00A81315 /* libQNDAnimations.a in Frameworks */,
+				BD1227A21725CB8900C56C37 /* libPods-UnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD1227A01725CAFF00C56C37 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BD12279E1725CAEB00C56C37 /* libPods-UnitTests.a */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		BD6695D51720B1DB00A81315 = {
 			isa = PBXGroup;
 			children = (
 				BD6695E31720B1DB00A81315 /* QNDAnimations */,
 				BD6695F81720B1DC00A81315 /* QNDAnimationsTests */,
+				BD1227A01725CAFF00C56C37 /* Libraries */,
 				BD6695E01720B1DB00A81315 /* Frameworks */,
 				BD6695DF1720B1DB00A81315 /* Products */,
+				8D016465E987438EB6E80279 /* Pods-UnitTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +133,7 @@
 		BD6695E01720B1DB00A81315 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD7C27E11724126A009D26EE /* CoreGraphics.framework */,
 				BD6695E11720B1DB00A81315 /* Foundation.framework */,
 				BD6695F01720B1DC00A81315 /* SenTestingKit.framework */,
 				BD6696461721EF8A00A81315 /* UIKit.framework */,
@@ -125,8 +149,8 @@
 				BD6695E41720B1DB00A81315 /* Supporting Files */,
 				BD6696401720B4DF00A81315 /* QNDAnimatedView.h */,
 				BD6696411720B4DF00A81315 /* QNDAnimatedView.m */,
-				BDBC13211722E8A8006D7FBD /* QNDViewAnimationKeyFrame.h */,
-				BDBC13221722E8A8006D7FBD /* QNDViewAnimationKeyFrame.m */,
+				BD7C27DA1724056B009D26EE /* QNDAnimatedViewProxy.h */,
+				BD7C27DB1724056B009D26EE /* QNDAnimatedViewProxy.m */,
 			);
 			path = QNDAnimations;
 			sourceTree = "<group>";
@@ -142,9 +166,11 @@
 		BD6695F81720B1DC00A81315 /* QNDAnimationsTests */ = {
 			isa = PBXGroup;
 			children = (
-				BD6695FE1720B1DC00A81315 /* QNDAnimationsTests.h */,
-				BD6695FF1720B1DC00A81315 /* QNDAnimationsTests.m */,
 				BD6695F91720B1DC00A81315 /* Supporting Files */,
+				BD7C27DE17240EAF009D26EE /* QNDAnimatedViewProxyTest.m */,
+				BD7C27E417241449009D26EE /* QNDAnimatedViewTest.m */,
+				BD1227A81725DD6A00C56C37 /* QNDViewAnimationTest.m */,
+				BD1227AB1725EF6500C56C37 /* QNDViewAnimationBuilderTest.m */,
 			);
 			path = QNDAnimationsTests;
 			sourceTree = "<group>";
@@ -178,21 +204,22 @@
 			productReference = BD6695DE1720B1DB00A81315 /* libQNDAnimations.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		BD6695EE1720B1DC00A81315 /* QNDAnimationsTests */ = {
+		BD6695EE1720B1DC00A81315 /* UnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD6696061720B1DC00A81315 /* Build configuration list for PBXNativeTarget "QNDAnimationsTests" */;
+			buildConfigurationList = BD6696061720B1DC00A81315 /* Build configuration list for PBXNativeTarget "UnitTests" */;
 			buildPhases = (
 				BD6695EA1720B1DC00A81315 /* Sources */,
 				BD6695EB1720B1DC00A81315 /* Frameworks */,
 				BD6695EC1720B1DC00A81315 /* Resources */,
 				BD6695ED1720B1DC00A81315 /* ShellScript */,
+				3AB6731D90724311A6C62E48 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				BD6695F61720B1DC00A81315 /* PBXTargetDependency */,
 			);
-			name = QNDAnimationsTests;
+			name = UnitTests;
 			productName = QNDAnimationsTests;
 			productReference = BD6695EF1720B1DC00A81315 /* QNDAnimationsTests.octest */;
 			productType = "com.apple.product-type.bundle";
@@ -219,7 +246,7 @@
 			projectRoot = "";
 			targets = (
 				BD6695DD1720B1DB00A81315 /* QNDAnimations */,
-				BD6695EE1720B1DC00A81315 /* QNDAnimationsTests */,
+				BD6695EE1720B1DC00A81315 /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +263,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3AB6731D90724311A6C62E48 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-UnitTests-resources.sh\"\n";
+		};
 		BD6695ED1720B1DC00A81315 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,7 +299,7 @@
 			files = (
 				BD6695E91720B1DB00A81315 /* QNDAnimations.m in Sources */,
 				BD6696421720B4DF00A81315 /* QNDAnimatedView.m in Sources */,
-				BDBC13231722E8A8006D7FBD /* QNDViewAnimationKeyFrame.m in Sources */,
+				BD7C27DC1724056B009D26EE /* QNDAnimatedViewProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,8 +307,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD6696001720B1DC00A81315 /* QNDAnimationsTests.m in Sources */,
-				BDBC13241722E8A8006D7FBD /* QNDViewAnimationKeyFrame.m in Sources */,
+				BD7C27DF17240EAF009D26EE /* QNDAnimatedViewProxyTest.m in Sources */,
+				BD7C27E517241449009D26EE /* QNDAnimatedViewTest.m in Sources */,
+				BD1227A91725DD6A00C56C37 /* QNDViewAnimationTest.m in Sources */,
+				BD1227AC1725EF6500C56C37 /* QNDViewAnimationBuilderTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +417,7 @@
 		};
 		BD6696071720B1DC00A81315 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D016465E987438EB6E80279 /* Pods-UnitTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
@@ -382,6 +426,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QNDAnimations/QNDAnimations-Prefix.pch";
 				INFOPLIST_FILE = "QNDAnimationsTests/QNDAnimationsTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries\"",
+				);
 				PRODUCT_NAME = QNDAnimationsTests;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
@@ -390,6 +438,7 @@
 		};
 		BD6696081720B1DC00A81315 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D016465E987438EB6E80279 /* Pods-UnitTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
@@ -398,6 +447,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QNDAnimations/QNDAnimations-Prefix.pch";
 				INFOPLIST_FILE = "QNDAnimationsTests/QNDAnimationsTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Libraries\"",
+				);
 				PRODUCT_NAME = QNDAnimationsTests;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = octest;
@@ -425,7 +478,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD6696061720B1DC00A81315 /* Build configuration list for PBXNativeTarget "QNDAnimationsTests" */ = {
+		BD6696061720B1DC00A81315 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD6696071720B1DC00A81315 /* Debug */,

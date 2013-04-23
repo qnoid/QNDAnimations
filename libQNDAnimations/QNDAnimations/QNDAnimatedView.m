@@ -3,7 +3,8 @@
 //  QNDAnimations
 //
 //  Created by Markos Charatzas on 19/04/2013.
-//  Copyright (c) 2013 Markos Charatzas (@qnoid).
+//  Copyright (c) 2013 Markos Charatzas (qnoid.com).
+//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
 //  the Software without restriction, including without limitation the rights to
@@ -25,12 +26,14 @@
 
 #import "QNDAnimatedView.h"
 
+float const QND_VIEW_ANIMATION_DEFAULT_ANIMATION_DURATION = 0.5;
+
 /**
  Creates a new QNDViewAnimationBlock that sets the given frame as the view's frame.
  */
 QNDViewAnimationBlock QNDViewAnimationBlockOnFrame(CGRect frame)
 {
-return ^(UIView* view){
+    return ^(UIView* view){
         view.frame = frame;
     };
 }
@@ -40,63 +43,28 @@ QNDViewAnimationBlock const QNDViewAnimationBlockDockLeft = ^(UIView* view){
                             view.frame.size.width, view.frame.size.height);
 };
 
-@interface QNDViewAnimation : NSObject
-
-//The frame in which the animation will apply
-@property (nonatomic, assign) CGRect frame;
-
-//The animation block
+@interface QNDViewAnimation ()
 @property (nonatomic, copy) QNDViewAnimationBlock viewAnimationBlock;
-
-//The duration of the animation as passed in UIView animateWithDuration:animations:
 @property (nonatomic, assign) double duration;
-
-//The previous animation that lead to self frame
-//@nullable
 @property (nonatomic, strong) QNDViewAnimation *previous;
-
-/**
- 
- */
-+(QNDViewAnimation*)newViewAnimation:(CGRect)frame viewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock;
-
-/**
- 
- */
-+(QNDViewAnimation*)newViewAnimation:(CGRect)frame viewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock previous:(QNDViewAnimation*) previous;
-
-/**
- 
- */
-+(QNDViewAnimation*)newViewAnimation:(CGRect)frame viewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock previous:(QNDViewAnimation*) previous duration:(NSTimeInterval)duration;
+@property (nonatomic, strong) QNDViewAnimation *next;
 @end
 
 @implementation QNDViewAnimation
 
-+(QNDViewAnimation*)newViewAnimation:(CGRect)frame viewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock {
-return [self newViewAnimation:frame viewAnimationBlock:viewAnimationBlock previous:nil];
-}
-
-+(QNDViewAnimation*)newViewAnimation:(CGRect)frame viewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock previous:(QNDViewAnimation*) previous{
-return [self newViewAnimation:frame viewAnimationBlock:viewAnimationBlock previous:previous duration:0.5];
-}
-
-+(QNDViewAnimation*)newViewAnimation:(CGRect)frame viewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock previous:(QNDViewAnimation*) previous duration:(NSTimeInterval)duration
++(QNDViewAnimation *)newViewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock
 {
-    QNDViewAnimation *viewAnimation = [QNDViewAnimation new];
-    viewAnimation.frame = frame;
+    QNDViewAnimation *viewAnimation = [[QNDViewAnimation alloc] init];
     viewAnimation.viewAnimationBlock = viewAnimationBlock;
-    viewAnimation.duration = duration;
-    viewAnimation.previous = previous;
-    
+    viewAnimation.duration = QND_VIEW_ANIMATION_DEFAULT_ANIMATION_DURATION;
+
 return viewAnimation;
 }
 
-
--(void)animate:(UIView*)view completion:(QNDViewAnimationCompletionBlock)completion
+-(QNDViewAnimation*)animate:(UIView*)view completion:(QNDViewAnimationCompletionBlock)completion
 {
     if(!self.viewAnimationBlock){
-        return;
+        return self;
     }
     
     __weak UIView *wView = view;
@@ -104,22 +72,92 @@ return viewAnimation;
     [UIView animateWithDuration:self.duration animations:^{
         self.viewAnimationBlock(wView);
     } completion:completion];
+    
+return self;
+}
+
+-(QNDViewAnimation*)addViewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock{
+    return [self addViewAnimationBlockWithDuration:QND_VIEW_ANIMATION_DEFAULT_ANIMATION_DURATION animation:viewAnimationBlock];
+}
+
+-(QNDViewAnimation*)addViewAnimationBlockWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock
+{
+    QNDViewAnimation *viewAnimation =
+    [[[[[QNDViewAnimationBuilder alloc] initWithViewAnimationBlock:viewAnimationBlock]
+                previous:self]
+                duration:duration]
+                newViewAnimation];
+    
+    self.next = viewAnimation;
+    
+return self.next;
+}
+
+
+-(void)cycle:(QNDViewAnimation *)viewAnimation
+{
+    self.next = viewAnimation;
+    viewAnimation.previous = self;
 }
 
 -(NSString *)description{
-    return [NSString stringWithFormat:@"%@ %@", self.previous, NSStringFromCGRect(self.frame)];
+    return [NSString stringWithFormat:@"%@", self.previous];
+}
+
+@end
+
+@interface QNDViewAnimationBuilder()
+@property(nonatomic, copy) QNDViewAnimationBlock viewAnimationBlock;
+@property(nonatomic, strong) QNDViewAnimation* previous;
+@property(nonatomic, strong) QNDViewAnimation* next;
+@property(nonatomic, assign) NSTimeInterval duration;
+@end
+
+@implementation QNDViewAnimationBuilder
+
+-(id)initWithViewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock
+{
+    self = [super init];
+    
+    if (!self) {
+        return nil;
+    }
+    
+    self.viewAnimationBlock = viewAnimationBlock;
+    self.duration = QND_VIEW_ANIMATION_DEFAULT_ANIMATION_DURATION;
+    
+return self;
+}
+
+-(instancetype)previous:(QNDViewAnimation*)previous{
+    self.previous = previous;
+return self;
+}
+
+-(instancetype)next:(QNDViewAnimation*)next {
+    self.next = next;
+return self;
+}
+
+-(instancetype)duration:(NSTimeInterval)duration{
+    self.duration = duration;
+return self;
+}
+
+-(QNDViewAnimation*)newViewAnimation{
+
+    QNDViewAnimation *viewAnimation = [QNDViewAnimation newViewAnimationBlock:self.viewAnimationBlock];
+    viewAnimation.duration = self.duration;
+    viewAnimation.previous = self.previous;
+    viewAnimation.next = self.next;
+
+return viewAnimation;
 }
 
 @end
 
 @interface QNDAnimatedView ()
 @property(nonatomic, strong) QNDViewAnimation *animations;
-
-/**
- 
- @param viewAnimation viewAnimation
- */
-- (void)addAnimation:(QNDViewAnimation*)viewAnimation;
 
 /**
  Will move the given viewAnimation to the front of the animations list.
@@ -139,11 +177,25 @@ return viewAnimation;
 
 /**
  */
--(void)animate:(QNDViewAnimation*)viewAnimation;
+-(QNDViewAnimation*)animate:(QNDViewAnimation*)viewAnimation;
 
 @end
 
 @implementation QNDAnimatedView
+
+//testing
+-(id)initWithFrame:(CGRect)frame animations:(QNDViewAnimation*)animations
+{
+    self = [super initWithFrame:frame];
+    
+    if(!self) {
+        return nil;
+    }
+    
+    self.animations = animations;
+    
+    return self;
+}
 
 -(id)initWithFrame:(CGRect)frame
 {
@@ -153,8 +205,7 @@ return viewAnimation;
         return nil;
     }
 
-    self.animations = [QNDViewAnimation newViewAnimation:self.frame
-                                      viewAnimationBlock:QNDViewAnimationBlockOnFrame(self.frame)];
+    self.animations = [QNDViewAnimation newViewAnimationBlock:QNDViewAnimationBlockOnFrame(self.frame)];
     
 return self;
 }
@@ -167,15 +218,38 @@ return self;
         return nil;
     }
     
-    self.animations = [QNDViewAnimation newViewAnimation:self.frame
-                                      viewAnimationBlock:QNDViewAnimationBlockOnFrame(self.frame)];
+    self.animations = [QNDViewAnimation newViewAnimationBlock:QNDViewAnimationBlockOnFrame(self.frame)];
     
-    return self;
+return self;
 }
 
-- (void)addAnimation:(QNDViewAnimation*)viewAnimation
+-(QNDViewAnimation*)addViewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock {
+    return [self addViewAnimationBlockWithDuration:QND_VIEW_ANIMATION_DEFAULT_ANIMATION_DURATION animation:viewAnimationBlock];
+}
+
+-(QNDViewAnimation*)addViewAnimationBlockWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock
 {
+    QNDViewAnimation *viewAnimation =
+        [[[[QNDViewAnimationBuilder alloc] initWithViewAnimationBlock:viewAnimationBlock]
+            duration:duration]
+            newViewAnimation];
+
+return [self addAnimation:viewAnimation];
+}
+
+- (QNDViewAnimation*)addAnimation:(QNDViewAnimation*)viewAnimation
+{
+    self.animations.next = viewAnimation;
+    viewAnimation.previous = self.animations;
     self.animations = viewAnimation;
+    
+return self.animations;
+}
+
+-(void)cycle:(QNDViewAnimation *)viewAnimation
+{
+    self.animations.next = viewAnimation;
+    viewAnimation.previous = self.animations;
 }
 
 - (void)promote:(QNDViewAnimation *)promotee
@@ -190,24 +264,33 @@ return self;
     promotee.previous = demotee;
 }
 
-
--(void)animate:(QNDViewAnimation*)viewAnimation
+-(QNDViewAnimation*)animate:(QNDViewAnimation*)viewAnimation
 {
-    [self animate:viewAnimation completion:nil];
+    return [self animate:viewAnimation completion:nil];
 }
 
--(void)animate:(QNDViewAnimation*)viewAnimation completion:(QNDViewAnimationCompletionBlock)completion
+-(QNDViewAnimation*)animate:(QNDViewAnimation*)viewAnimation completion:(QNDViewAnimationCompletionBlock)completion
 {
-    [viewAnimation animate:self completion:completion];
+    return [viewAnimation animate:self completion:completion];
 }
 
-- (void)animateWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock {
-    QNDViewAnimation *viewAnimation = [QNDViewAnimation newViewAnimation:self.frame
-                                    viewAnimationBlock:viewAnimationBlock
-                                              previous:self.animations
-                                              duration:duration];
-    [self addAnimation:viewAnimation];
-    [self animate:viewAnimation];
+- (QNDViewAnimation*)animateWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock
+{
+    QNDViewAnimation *viewAnimation = [self addViewAnimationBlockWithDuration:duration animation:viewAnimationBlock];
+    return [self animate:viewAnimation];
+}
+
+-(QNDViewAnimation*)forward{
+    return [self forward:nil];
+}
+
+-(QNDViewAnimation*)forward:(QNDViewAnimationCompletionBlock)completion
+{
+    QNDViewAnimation *next = self.animations.next;
+    [self animate:next completion:completion];
+    self.animations = next;
+    
+return self.animations;
 }
 
 -(QNDViewAnimation*)rewind {

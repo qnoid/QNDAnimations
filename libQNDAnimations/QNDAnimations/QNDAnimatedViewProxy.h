@@ -1,9 +1,10 @@
 //
-//  QNDViewAnimationKeyFrame.h
+//  QNDAnimatedViewProxy.h
 //  QNDAnimations
 //
-//  Created by Markos Charatzas on 20/04/2013.
-//  Copyright (c) 2013 Markos Charatzas (@qnoid).
+//  Created by Markos Charatzas on 21/04/2013.
+//  Copyright (c) 2013 Markos Charatzas (qnoid.com).
+//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
 //  the Software without restriction, including without limitation the rights to
@@ -22,24 +23,17 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 //
-
+ 
 #import <Foundation/Foundation.h>
 #import "QNDAnimatedView.h"
 
-@interface QNDViewAnimationKeyFrame : NSObject
-@property (nonatomic, copy) QNDViewAnimationBlock viewAnimationBlock;
-@property (nonatomic, strong) QNDViewAnimationKeyFrame *previousViewAnimationKeyFrame;
-@property (nonatomic, strong) QNDViewAnimationKeyFrame *nextViewAnimationKeyFrame;
+@interface QNDAnimatedViewProxy : NSProxy <QNDAnimatedView>
 
 /**
  
+ @param view the view
+ @return a new UIView that supports the QNDAnimatedView protocol.
  */
-+(instancetype)newViewAnimationKeyFrame:(QNDViewAnimationBlock)viewAnimationBlock;
++(UIView<QNDAnimatedView>*)newAnimatedViewProxy:(UIView*)view;
 
-/**
- 
- */
--(QNDViewAnimationKeyFrame *)addViewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock;
-
--(void)cycle:(QNDViewAnimationKeyFrame *)viewAnimationKeyFrame;
 @end

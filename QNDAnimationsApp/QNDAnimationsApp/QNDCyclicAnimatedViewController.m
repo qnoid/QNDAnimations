@@ -3,7 +3,8 @@
 //  QNDAnimationsApp
 //
 //  Created by Markos Charatzas on 19/04/2013.
-//  Copyright (c) 2013 Markos Charatzas (@qnoid).
+//  Copyright (c) 2013 Markos Charatzas (qnoid.com).
+//
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
 //  the Software without restriction, including without limitation the rights to
@@ -25,11 +26,9 @@
 
 
 #import "QNDCyclicAnimatedViewController.h"
-#import "QNDViewAnimationKeyFrame.h"
 
 @interface QNDCyclicAnimatedViewController ()
 @property(nonatomic, weak) IBOutlet QNDAnimatedView *animatedView;
-@property(nonatomic, strong) QNDViewAnimationKeyFrame *viewAnimationKeyFrames;
 -(id)initWithBundle:(NSBundle *)nibBundleOrNil;
 -(IBAction)toggle:(UIBarButtonItem*)toggleBarButtonItem;
 -(IBAction)rewind:(UIBarButtonItem*)rewindBarButtonItem;
@@ -59,25 +58,32 @@
     [super viewDidLoad];
     
     __weak QNDAnimatedView* wAnimatedView = self.animatedView;
-
-    self.viewAnimationKeyFrames = [QNDViewAnimationKeyFrame newViewAnimationKeyFrame:^(UIView *view) {
+    
+    QNDViewAnimation* viewAnimation = [self.animatedView addViewAnimationBlock:^(UIView *view) {
         view.frame = CGRectMake(0, 44,
-                wAnimatedView.frame.size.width,
-                wAnimatedView.frame.size.height);
+                                wAnimatedView.frame.size.width,
+                                wAnimatedView.frame.size.height);
     }];
-    [[[[self.viewAnimationKeyFrames addViewAnimationBlock:^(UIView *view) {
+     
+    [self.animatedView addViewAnimationBlock:^(UIView *view) {
         view.frame = CGRectMake(160, 44,
-                wAnimatedView.frame.size.width,
-                wAnimatedView.frame.size.height);
-    }] addViewAnimationBlock:^(UIView *view) {
+                                wAnimatedView.frame.size.width,
+                                wAnimatedView.frame.size.height);
+    }];
+     
+    [self.animatedView addViewAnimationBlock:^(UIView *view) {
         view.frame = CGRectMake(160, 208,
-                wAnimatedView.frame.size.width,
-                wAnimatedView.frame.size.height);
-    }] addViewAnimationBlock:^(UIView *view) {
+                                wAnimatedView.frame.size.width,
+                                wAnimatedView.frame.size.height);
+    }];
+     
+    [self.animatedView addViewAnimationBlock:^(UIView *view) {
         view.frame = CGRectMake(0, 208,
-                wAnimatedView.frame.size.width,
-                wAnimatedView.frame.size.height);
-    }] cycle:self.viewAnimationKeyFrames];
+                                wAnimatedView.frame.size.width,
+                                wAnimatedView.frame.size.height);
+    }];
+
+    [self.animatedView cycle:viewAnimation];
 }
 
 -(IBAction)toggle:(UIBarButtonItem*)toggleBarButtonItem
@@ -87,15 +93,12 @@
 
 -(IBAction)rewind:(UIBarButtonItem*)rewindBarButtonItem
 {
-    self.viewAnimationKeyFrames = self.viewAnimationKeyFrames.previousViewAnimationKeyFrame;
-    
     [self.animatedView rewind];
 }
 
 -(IBAction)forward:(UIBarButtonItem*)animateBarButtonItem
 {
-    [self.animatedView animateWithDuration:0.5 animation:self.viewAnimationKeyFrames.viewAnimationBlock];
-    self.viewAnimationKeyFrames = self.viewAnimationKeyFrames.nextViewAnimationKeyFrame;
+    [self.animatedView forward];
 }
 
 -(IBAction)didTouchUpInsideDismiss:(UIBarButtonItem*)dismissBarButtonItem{

@@ -1,7 +1,7 @@
 # Introduction
 This is an implementation of a UIView that introduces the idea of "rewinding" in animations. Rewinding allows for past animations to be played again.
 
-[Demo][2]
+[Demo][2] | [Discussion][3]
 
 The current implementation of rewinding also supports "toggling" an animation. That is, given an animation toggle will "rewind" and "playback" this animation for every pair call.
 
@@ -27,10 +27,10 @@ Drag a UIView in the xib and change its type to QNDAnimatedView.
 	
 	UIView<QNDAnimatedView>* animatedView = [[QNDAnimations new] newViewAnimated:frame];
 
-	[animatedView animateWithDurations:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
+	[animatedView animateWithDuration:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
 	[animatedView rewind];
 
-	[animatedView animateWithDurations:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
+	[animatedView animateWithDuration:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
 	[animatedView toggle];
 
 
@@ -44,6 +44,7 @@ Ability to augment an existing UIView as animated.
 
 [1]: http://qnoid.com
 [2]: http://www.youtube.com/watch?v=Y_OuP9mpfMY&feature=youtu.be
+[3]: https://plus.google.com/116431322187209993066/posts/fsXY6cVH2Vv 
 
 # Licence
 
