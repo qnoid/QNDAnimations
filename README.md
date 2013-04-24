@@ -1,15 +1,17 @@
 # Introduction
 This is an implementation of a UIView that introduces the idea of "rewinding", "toggling" and "forwarding" in animations. 
 
+[Discussion][3]
+
 * Rewinding allows for past animations to be played again.
 * Forwarding allows playing a pre-built animation flow.
 * Toggling given an animation, toggle will "rewind" and "forward" this animation for every pair call.
 
-[Rewinding][2] | [Forwarding][4] | [Discussion][3]
+[Rewinding][2] | [Forwarding][4]
 
 Rewind and Forward by extension makes "looping" between animations possible.
 
-[Loop][5] 
+[Looping][5] 
 
 # QNDAnimatedView
 
@@ -34,7 +36,7 @@ The 'QNDAnimationsApp.xcodeproj' is the .app demoing the QNDAnimatedView.
    - Versions: 2.0 [master repo]
 
 # Versions
-*2.0 Additional support for "forwarding" and "looping" animations.
+*2.0 Additional support for "forwarding" and "looping" animations.  
 1.0 initial version. Support for "rewind" and "toggle" animations.
 
 # How to use
@@ -48,16 +50,13 @@ Drag a UIView in the xib and change its type to QNDAnimatedView.
 
 	UIView<QNDAnimatedView>* animatedView = [[QNDAnimations new] newViewAnimated:frame];
 
-//rewinding
 	[animatedView animateWithDuration:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
 	[animatedView rewind];
 
-//toggling
 	[animatedView animateWithDuration:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
 	[animatedView toggle];
 	[animatedView toggle];
 
-//forwarding
     [animatedView addViewAnimationBlock:^(UIView *view) {
         view.frame = firstKeyFrame; }];
      
