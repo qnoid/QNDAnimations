@@ -36,7 +36,7 @@ The 'QNDAnimationsApp.xcodeproj' is the .app demoing the QNDAnimatedView.
    - Versions: 2.0 [master repo]
 
 # Versions
-*2.0 Additional support for "forwarding" and "looping" animations.  
+*2.0 Augment existing UIView(s). Additional support for "forwarding" and "looping" animations.  
 1.0 initial version. Support for "rewind" and "toggle" animations.
 
 # How to use
