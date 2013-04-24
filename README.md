@@ -1,9 +1,17 @@
 # Introduction
-This is an implementation of a UIView that introduces the idea of "rewinding" in animations. Rewinding allows for past animations to be played again.
+This is an implementation of a UIView that introduces the idea of "rewinding", "toggling" and "forwarding" in animations. 
 
-[Demo][2] | [Discussion][3]
+* Rewinding allows for past animations to be played again.
+* Forwarding allows playing a pre-built animation flow.
+* Toggling given an animation, toggle will "rewind" and "forward" this animation for every pair call.
 
-The current implementation of rewinding also supports "toggling" an animation. That is, given an animation toggle will "rewind" and "playback" this animation for every pair call.
+[Rewinding][2] | [Forwarding][4] | [Discussion][3]
+
+Rewind and Forward by extension makes "looping" between animations possible.
+
+[Loop][5] 
+
+# QNDAnimatedView
 
 The QNDAnimatedView does not enforce a particular state in the animation flow, hence any "consistency" remains the responsibility of the client. This is by design so as not to pose any restrictions on the animations and make any judgements as to the said "consistency".
 
@@ -17,6 +25,18 @@ The 'QNDAnimations.xcodeproj' builds a static library 'libQNDAnimations.a'
 * QNDAnimationsApp    
 The 'QNDAnimationsApp.xcodeproj' is the .app demoing the QNDAnimatedView.
 
+# Cocoapods
+
+  -> QNDAnimations (2.0)
+   This is an implementation of a UIView that introduces the idea of 'rewinding' in animations.
+   - Homepage: https://github.com/qnoid/QNDAnimations
+   - Source:   https://github.com/qnoid/QNDAnimations.git
+   - Versions: 2.0 [master repo]
+
+# Versions
+*2.0 Additional support for "forwarding" and "looping" animations.
+1.0 initial version. Support for "rewind" and "toggle" animations.
+
 # How to use
 
 ## Under Interface Builder
@@ -24,15 +44,32 @@ Drag a UIView in the xib and change its type to QNDAnimatedView.
 
 ## Under code
 
-	
+### Creating a new view
+
 	UIView<QNDAnimatedView>* animatedView = [[QNDAnimations new] newViewAnimated:frame];
 
+//rewinding
 	[animatedView animateWithDuration:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
 	[animatedView rewind];
 
+//toggling
 	[animatedView animateWithDuration:0.5 animation:^(UIView* view){ view.frame = newFrame; }];
 	[animatedView toggle];
+	[animatedView toggle];
 
+//forwarding
+    [animatedView addViewAnimationBlock:^(UIView *view) {
+        view.frame = firstKeyFrame; }];
+     
+    [animatedView addViewAnimationBlock:^(UIView *view) {
+        view.frame = secondKeyFrame; }];
+
+    [self.animatedView forward];
+    [self.animatedView forward];
+
+### Augmenting an existing view
+
+	UIView<QNDAnimatedView>* animatedView = [[QNDAnimations new] animateView:view];
 
 # Demo
 
@@ -40,11 +77,13 @@ Open 'QNDAnimations.xcworkspace' and run the QNDAnimationsApp target.
 
 ## Future Work
 
-Ability to augment an existing UIView as animated.
+Add support for timed animations.
 
 [1]: http://qnoid.com
 [2]: http://www.youtube.com/watch?v=Y_OuP9mpfMY&feature=youtu.be
 [3]: https://plus.google.com/116431322187209993066/posts/fsXY6cVH2Vv 
+[4]: http://www.youtube.com/watch?v=aijJ7nAfdvo
+[5]: http://www.youtube.com/watch?v=CAOaKGn-K5g
 
 # Licence
 

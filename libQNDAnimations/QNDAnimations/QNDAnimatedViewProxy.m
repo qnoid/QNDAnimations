@@ -25,6 +25,7 @@
 //
 
 #import "QNDAnimatedViewProxy.h"
+#import "QNDViewAnimationBlockSuppliers.h"
 
 @interface QNDAnimatedViewProxy()
 @property(nonatomic, weak) UIView* view;
@@ -38,7 +39,7 @@
 {
     UIView<QNDAnimatedView>* animatedView = [[QNDAnimatedView alloc] initWithFrame:view.frame];
     
-    id animatedViewProxy = [[QNDAnimatedViewProxy alloc] initWith:view animatedView:animatedView];;
+    id animatedViewProxy = [[QNDAnimatedViewProxy alloc] initWith:view animatedView:animatedView];
     
 return animatedViewProxy;
 }
@@ -47,6 +48,7 @@ return animatedViewProxy;
 {
     self.view = view;
     self.animatedView = animatedView;
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 return self;
 }
 
@@ -54,20 +56,39 @@ return self;
     return self.view;
 }
 
--(QNDViewAnimation*)addViewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock {
-   return [self.animatedView addViewAnimationBlock:viewAnimationBlock];
+-(QNDViewAnimation*)addViewAnimationBlock:(QNDViewAnimationBlock)viewAnimationBlock
+{
+   NSObject<QNDViewAnimationBlockSupplier> *supplierWillIjectViewInBlock =
+        [QNDViewAnimationBlockSuppliers of:viewAnimationBlock onView:self.view];
+    return [self.animatedView addViewAnimationBlock:[supplierWillIjectViewInBlock get]];
 }
 
--(QNDViewAnimation*)addViewAnimationBlockWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock{
-   return [self.animatedView addViewAnimationBlockWithDuration:duration animation:viewAnimationBlock];
+-(QNDViewAnimation*)addViewAnimationBlockWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock
+{
+    NSObject<QNDViewAnimationBlockSupplier> *supplierWillIjectViewInBlock =
+        [QNDViewAnimationBlockSuppliers of:viewAnimationBlock onView:self.view];
+
+   return [self.animatedView addViewAnimationBlockWithDuration:duration animation:[supplierWillIjectViewInBlock get]];
 }
 
 -(void)cycle:(QNDViewAnimation *)viewAnimation{
     [self.animatedView cycle:viewAnimation];
 }
 
--(QNDViewAnimation*)animateWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock{
-    return [self.animatedView animateWithDuration:duration animation:viewAnimationBlock];
+-(QNDViewAnimation*)animateWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock
+{
+    NSObject<QNDViewAnimationBlockSupplier> *supplierWillIjectViewInBlock =
+        [QNDViewAnimationBlockSuppliers of:viewAnimationBlock onView:self.view];
+
+    return [self.animatedView animateWithDuration:duration animation:[supplierWillIjectViewInBlock get]];
+}
+
+-(QNDViewAnimation *)play{
+    return [self.animatedView play];
+}
+
+-(QNDViewAnimation *)play:(QNDViewAnimationCompletionBlock)completion{
+    return [self.animatedView play:completion];
 }
 
 -(QNDViewAnimation *)forward{

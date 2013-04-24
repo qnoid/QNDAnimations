@@ -26,25 +26,13 @@
 
 
 #import <UIKit/UIKit.h>
+#import "QNDViewAnimationBlockSuppliers.h"
 
 @class QNDAnimatedView;
 
 extern float const QND_VIEW_ANIMATION_DEFAULT_ANIMATION_DURATION;
 
-/**
- Definition of an animation block given a UIView to operate on.
- 
- @param view the view to operate the animation block on
- */
-typedef void(^QNDViewAnimationBlock)(UIView* view);
 typedef void(^QNDViewAnimationCompletionBlock)(BOOL finished);
-
-extern QNDViewAnimationBlock const QNDViewAnimationBlockDockLeft;
-extern QNDViewAnimationBlock QNDViewAnimationBlockOnFrame(CGRect frame);
-
-@interface QNDAnimatedViewBlocks : NSObject
-
-@end
 
 /**
  
@@ -186,6 +174,16 @@ extern QNDViewAnimationBlock QNDViewAnimationBlockOnFrame(CGRect frame);
  @see #rewind
  */
 -(QNDViewAnimation*)animateWithDuration:(NSTimeInterval)duration animation:(QNDViewAnimationBlock)viewAnimationBlock;
+
+/**
+ 
+ */
+-(QNDViewAnimation*)play;
+
+/**
+ 
+ */
+-(QNDViewAnimation*)play:(QNDViewAnimationCompletionBlock)completion;
 
 /**
  Plays the animation block that comes after the one given in the last call of #animateWithDuration:animation:

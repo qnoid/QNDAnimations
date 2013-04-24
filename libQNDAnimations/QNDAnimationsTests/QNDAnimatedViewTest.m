@@ -47,7 +47,7 @@
 @end
 
 
-SPEC_BEGIN(QNDAnimatedViewProxySpec)
+SPEC_BEGIN(QNDAnimatedViewSpec)
 
 describe(@"QNDAnimatedView", ^{
     context(@"when newly created", ^{

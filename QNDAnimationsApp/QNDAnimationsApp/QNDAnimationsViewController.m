@@ -27,17 +27,34 @@
 
 #import "QNDAnimationsViewController.h"
 #import "QNDOneWayAnimatedViewController.h"
-#import "QNDCyclicAnimatedViewController.h"
+#import "QNDLoopAnimatedViewController.h"
+#import "QNDAnimations.h"
+#import "QNDAnimatedView.h"
 
 @interface QNDAnimationsViewController ()
+@property(nonatomic, weak) IBOutlet UIView* oneWayView;
+@property(nonatomic, weak) IBOutlet UIView* loopView;
+@property(nonatomic, assign) CGRect oneWayViewFrame;
+@property(nonatomic, assign) CGRect loopViewFrame;
+@property(nonatomic, strong) UIView<QNDAnimatedView>* oneWayAnimatedView;
+@property(nonatomic, strong) UIView<QNDAnimatedView>* loopAnimatedView;
 -(IBAction)didTouchUpInsideOneWayButton:(UIButton*)sender;
--(IBAction)didTouchUpInsideCyclicButton:(UIButton*)sender;
+-(IBAction)didTouchUpInsideLoopButton:(UIButton*)sender;
 @end
 
 @implementation QNDAnimationsViewController
 
-+(UINavigationController*)newViewController {
-    return [[UINavigationController alloc] initWithRootViewController:[[QNDAnimationsViewController alloc] initWithBundle:nil]];
++(UINavigationController*)newViewController
+{
+    QNDAnimationsViewController *animationsViewController = [[QNDAnimationsViewController alloc] initWithBundle:nil];
+    
+    animationsViewController.navigationItem.rightBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"animate"
+                                     style:UIBarButtonItemStylePlain
+                                    target:animationsViewController
+                                    action:@selector(didTouchUpInsideAnimateButton:)];
+    
+    return [[UINavigationController alloc] initWithRootViewController:animationsViewController];
 }
 
 -(id)initWithBundle:(NSBundle *)nibBundleOrNil
@@ -49,7 +66,30 @@
     
     self.title = @"QNDAnimatedView";
     
-return self;
+    return self;
+}
+
+-(void)viewDidLoad
+{
+    self.oneWayAnimatedView = [[QNDAnimations new] animateView:self.oneWayView];
+    self.loopAnimatedView = [[QNDAnimations new] animateView:self.loopView];
+    self.oneWayViewFrame = self.oneWayView.frame;
+    self.loopViewFrame = self.loopView.frame;
+
+    __weak QNDAnimationsViewController *wSelf = self;
+    [self.oneWayAnimatedView addViewAnimationBlock:^(UIView *view) {
+        view.frame = wSelf.loopViewFrame;
+    }];
+    
+    [self.loopAnimatedView addViewAnimationBlock:^(UIView *view) {
+        view.frame = wSelf.oneWayViewFrame;
+    }];
+}
+
+-(void)didTouchUpInsideAnimateButton:(UIBarButtonItem*)sender
+{
+    [self.oneWayAnimatedView play];
+    [self.loopAnimatedView play];
 }
 
 -(IBAction)didTouchUpInsideOneWayButton:(UIButton*)sender
@@ -57,9 +97,9 @@ return self;
     [self presentViewController:[QNDOneWayAnimatedViewController newViewController] animated:YES completion:nil];
 }
 
--(IBAction)didTouchUpInsideCyclicButton:(UIButton*)sender
+-(IBAction)didTouchUpInsideLoopButton:(UIButton*)sender
 {
-    [self presentViewController:[QNDCyclicAnimatedViewController newViewController] animated:YES completion:nil];
+    [self presentViewController:[QNDLoopAnimatedViewController newViewController] animated:YES completion:nil];
 }
 
 @end

@@ -28,21 +28,6 @@
 
 float const QND_VIEW_ANIMATION_DEFAULT_ANIMATION_DURATION = 0.5;
 
-/**
- Creates a new QNDViewAnimationBlock that sets the given frame as the view's frame.
- */
-QNDViewAnimationBlock QNDViewAnimationBlockOnFrame(CGRect frame)
-{
-    return ^(UIView* view){
-        view.frame = frame;
-    };
-}
-
-QNDViewAnimationBlock const QNDViewAnimationBlockDockLeft = ^(UIView* view){
-    view.frame = CGRectMake(CGPointZero.x, view.frame.origin.y,
-                            view.frame.size.width, view.frame.size.height);
-};
-
 @interface QNDViewAnimation ()
 @property (nonatomic, copy) QNDViewAnimationBlock viewAnimationBlock;
 @property (nonatomic, assign) double duration;
@@ -278,6 +263,14 @@ return self.animations;
 {
     QNDViewAnimation *viewAnimation = [self addViewAnimationBlockWithDuration:duration animation:viewAnimationBlock];
     return [self animate:viewAnimation];
+}
+
+-(QNDViewAnimation*)play{
+    return [self play:nil];
+}
+
+-(QNDViewAnimation*)play:(QNDViewAnimationCompletionBlock)completion {
+return [self animate:self.animations completion:completion];
 }
 
 -(QNDViewAnimation*)forward{

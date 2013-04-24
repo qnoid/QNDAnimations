@@ -24,8 +24,8 @@
 		BD6695C11720B1C200A81315 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD66959C1720B1C100A81315 /* Foundation.framework */; };
 		BD6695C91720B1C200A81315 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD6695C71720B1C200A81315 /* InfoPlist.strings */; };
 		BD6695CC1720B1C200A81315 /* QNDAnimationsAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6695CB1720B1C200A81315 /* QNDAnimationsAppTests.m */; };
-		BD6696561722021B00A81315 /* QNDCyclicAnimatedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6696541722021B00A81315 /* QNDCyclicAnimatedViewController.m */; };
-		BD6696571722021B00A81315 /* QNDCyclicAnimatedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6696551722021B00A81315 /* QNDCyclicAnimatedViewController.xib */; };
+		BD6696561722021B00A81315 /* QNDLoopAnimatedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6696541722021B00A81315 /* QNDLoopAnimatedViewController.m */; };
+		BD6696571722021B00A81315 /* QNDLoopAnimatedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6696551722021B00A81315 /* QNDLoopAnimatedViewController.xib */; };
 		BDBC131B1722E0F7006D7FBD /* QNDAnimationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBC13191722E0F7006D7FBD /* QNDAnimationsViewController.m */; };
 		BDBC131C1722E0F7006D7FBD /* QNDAnimationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDBC131A1722E0F7006D7FBD /* QNDAnimationsViewController.xib */; };
 		BDBC131E1722E47C006D7FBD /* oneway.png in Resources */ = {isa = PBXBuildFile; fileRef = BDBC131D1722E47C006D7FBD /* oneway.png */; };
@@ -66,9 +66,9 @@
 		BD6695C81720B1C200A81315 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD6695CA1720B1C200A81315 /* QNDAnimationsAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNDAnimationsAppTests.h; sourceTree = "<group>"; };
 		BD6695CB1720B1C200A81315 /* QNDAnimationsAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNDAnimationsAppTests.m; sourceTree = "<group>"; };
-		BD6696531722021B00A81315 /* QNDCyclicAnimatedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDCyclicAnimatedViewController.h; sourceTree = "<group>"; };
-		BD6696541722021B00A81315 /* QNDCyclicAnimatedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDCyclicAnimatedViewController.m; sourceTree = "<group>"; };
-		BD6696551722021B00A81315 /* QNDCyclicAnimatedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNDCyclicAnimatedViewController.xib; sourceTree = "<group>"; };
+		BD6696531722021B00A81315 /* QNDLoopAnimatedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDLoopAnimatedViewController.h; sourceTree = "<group>"; };
+		BD6696541722021B00A81315 /* QNDLoopAnimatedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDLoopAnimatedViewController.m; sourceTree = "<group>"; };
+		BD6696551722021B00A81315 /* QNDLoopAnimatedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNDLoopAnimatedViewController.xib; sourceTree = "<group>"; };
 		BDBC13181722E0F7006D7FBD /* QNDAnimationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDAnimationsViewController.h; sourceTree = "<group>"; };
 		BDBC13191722E0F7006D7FBD /* QNDAnimationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDAnimationsViewController.m; sourceTree = "<group>"; };
 		BDBC131A1722E0F7006D7FBD /* QNDAnimationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QNDAnimationsViewController.xib; sourceTree = "<group>"; };
@@ -141,9 +141,9 @@
 				BD6695B21720B1C200A81315 /* QNDOneWayAnimatedViewController.h */,
 				BD6695B31720B1C200A81315 /* QNDOneWayAnimatedViewController.m */,
 				BD6695B51720B1C200A81315 /* QNDOneWayAnimatedViewController.xib */,
-				BD6696531722021B00A81315 /* QNDCyclicAnimatedViewController.h */,
-				BD6696541722021B00A81315 /* QNDCyclicAnimatedViewController.m */,
-				BD6696551722021B00A81315 /* QNDCyclicAnimatedViewController.xib */,
+				BD6696531722021B00A81315 /* QNDLoopAnimatedViewController.h */,
+				BD6696541722021B00A81315 /* QNDLoopAnimatedViewController.m */,
+				BD6696551722021B00A81315 /* QNDLoopAnimatedViewController.xib */,
 				BDBC13181722E0F7006D7FBD /* QNDAnimationsViewController.h */,
 				BDBC13191722E0F7006D7FBD /* QNDAnimationsViewController.m */,
 				BDBC131A1722E0F7006D7FBD /* QNDAnimationsViewController.xib */,
@@ -271,7 +271,7 @@
 				BD6695AF1720B1C100A81315 /* Default@2x.png in Resources */,
 				BD6695B11720B1C100A81315 /* Default-568h@2x.png in Resources */,
 				BD6695B71720B1C200A81315 /* QNDOneWayAnimatedViewController.xib in Resources */,
-				BD6696571722021B00A81315 /* QNDCyclicAnimatedViewController.xib in Resources */,
+				BD6696571722021B00A81315 /* QNDLoopAnimatedViewController.xib in Resources */,
 				BDBC131C1722E0F7006D7FBD /* QNDAnimationsViewController.xib in Resources */,
 				BDBC131E1722E47C006D7FBD /* oneway.png in Resources */,
 				BDBC13201722E6D3006D7FBD /* cyclic.png in Resources */,
@@ -312,7 +312,7 @@
 				BD6695A71720B1C100A81315 /* main.m in Sources */,
 				BD6695AB1720B1C100A81315 /* QNDAppDelegate.m in Sources */,
 				BD6695B41720B1C200A81315 /* QNDOneWayAnimatedViewController.m in Sources */,
-				BD6696561722021B00A81315 /* QNDCyclicAnimatedViewController.m in Sources */,
+				BD6696561722021B00A81315 /* QNDLoopAnimatedViewController.m in Sources */,
 				BDBC131B1722E0F7006D7FBD /* QNDAnimationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

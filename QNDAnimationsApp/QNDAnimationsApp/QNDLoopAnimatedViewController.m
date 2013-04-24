@@ -25,9 +25,9 @@
 //
 
 
-#import "QNDCyclicAnimatedViewController.h"
+#import "QNDLoopAnimatedViewController.h"
 
-@interface QNDCyclicAnimatedViewController ()
+@interface QNDLoopAnimatedViewController ()
 @property(nonatomic, weak) IBOutlet QNDAnimatedView *animatedView;
 -(id)initWithBundle:(NSBundle *)nibBundleOrNil;
 -(IBAction)toggle:(UIBarButtonItem*)toggleBarButtonItem;
@@ -36,11 +36,11 @@
 -(IBAction)didTouchUpInsideDismiss:(UIBarButtonItem*)dismissBarButtonItem;
 @end
 
-@implementation QNDCyclicAnimatedViewController
+@implementation QNDLoopAnimatedViewController
 
 +(instancetype)newViewController
 {
-    return [[QNDCyclicAnimatedViewController alloc] initWithBundle:nil];
+    return [[QNDLoopAnimatedViewController alloc] initWithBundle:nil];
 }
 
 -(id)initWithBundle:(NSBundle *)nibBundleOrNil

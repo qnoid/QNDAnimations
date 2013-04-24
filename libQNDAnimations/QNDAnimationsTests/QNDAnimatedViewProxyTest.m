@@ -55,19 +55,19 @@
 {
     id mockedView = [OCMockObject niceMockForProtocol:@protocol(QNDAnimatedView)];
     id animatedView = [[QNDAnimatedViewProxy alloc] initWith:nil animatedView:mockedView];
-    float anyDuration = 0.0;
-    [[mockedView expect] addViewAnimationBlock:nil];
+
     [[mockedView expect] cycle:nil];
-    [[mockedView expect] animateWithDuration:anyDuration animation:nil];
+    [[mockedView expect] play];
+    [[mockedView expect] play:nil];
     [[mockedView expect] forward];
     [[mockedView expect] forward:nil];
     [[mockedView expect] rewind];
     [[mockedView expect] rewind:nil];
     [[mockedView expect] toggle];
 
-    [animatedView addViewAnimationBlock:nil];
     [animatedView cycle:nil];
-    [animatedView animateWithDuration:anyDuration animation:nil];
+    [animatedView play];
+    [animatedView play:nil];
     [animatedView forward];
     [animatedView forward:nil];
     [animatedView rewind];
@@ -76,6 +76,31 @@
     
     [mockedView verify];
 }
-
-
 @end
+
+SPEC_BEGIN(QNDAnimatedViewProxySpec)
+
+describe(@"QNDAnimatedViewProxy", ^{
+    context(@"when addViewAnimationBlock", ^{
+        it(@"should pass view", ^{
+            id mockedView = [OCMockObject niceMockForClass:[UIView class]];
+            UIView<QNDAnimatedView>* animatedView = [QNDAnimatedViewProxy newAnimatedViewProxy:mockedView];
+
+            [animatedView addViewAnimationBlock:^(UIView *view) {
+                [[view should] equal:mockedView];
+            }];
+        });
+    });
+    context(@"when addViewAnimationBlock", ^{
+        it(@"should pass view", ^{
+            id mockedView = [OCMockObject niceMockForClass:[UIView class]];
+            UIView<QNDAnimatedView>* animatedView = [QNDAnimatedViewProxy newAnimatedViewProxy:mockedView];
+            float any = 0.0;
+            
+            [animatedView addViewAnimationBlockWithDuration:any animation:^(UIView *view) {
+                [[view should] equal:mockedView];
+            }];
+        });
+    });
+});
+SPEC_END

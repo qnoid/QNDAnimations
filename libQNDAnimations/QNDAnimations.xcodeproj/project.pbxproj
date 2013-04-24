@@ -25,6 +25,8 @@
 		BD7C27E017241224009D26EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6696461721EF8A00A81315 /* UIKit.framework */; };
 		BD7C27E21724126A009D26EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD7C27E11724126A009D26EE /* CoreGraphics.framework */; };
 		BD7C27E517241449009D26EE /* QNDAnimatedViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7C27E417241449009D26EE /* QNDAnimatedViewTest.m */; };
+		BDD810AE17274A85005C2ECA /* QNDViewAnimationBlockSuppliers.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD810AD17274A85005C2ECA /* QNDViewAnimationBlockSuppliers.m */; };
+		BDD810B2172759E8005C2ECA /* QNDViewAnimationBlockSupplierTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD810B1172759E8005C2ECA /* QNDViewAnimationBlockSupplierTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,9 @@
 		BD7C27DE17240EAF009D26EE /* QNDAnimatedViewProxyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDAnimatedViewProxyTest.m; sourceTree = "<group>"; };
 		BD7C27E11724126A009D26EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BD7C27E417241449009D26EE /* QNDAnimatedViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDAnimatedViewTest.m; sourceTree = "<group>"; };
+		BDD810AC17274A85005C2ECA /* QNDViewAnimationBlockSuppliers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNDViewAnimationBlockSuppliers.h; sourceTree = "<group>"; };
+		BDD810AD17274A85005C2ECA /* QNDViewAnimationBlockSuppliers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDViewAnimationBlockSuppliers.m; sourceTree = "<group>"; };
+		BDD810B1172759E8005C2ECA /* QNDViewAnimationBlockSupplierTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNDViewAnimationBlockSupplierTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,13 +149,15 @@
 		BD6695E31720B1DB00A81315 /* QNDAnimations */ = {
 			isa = PBXGroup;
 			children = (
+				BD6695E41720B1DB00A81315 /* Supporting Files */,
 				BD6695E61720B1DB00A81315 /* QNDAnimations.h */,
 				BD6695E81720B1DB00A81315 /* QNDAnimations.m */,
-				BD6695E41720B1DB00A81315 /* Supporting Files */,
 				BD6696401720B4DF00A81315 /* QNDAnimatedView.h */,
 				BD6696411720B4DF00A81315 /* QNDAnimatedView.m */,
 				BD7C27DA1724056B009D26EE /* QNDAnimatedViewProxy.h */,
 				BD7C27DB1724056B009D26EE /* QNDAnimatedViewProxy.m */,
+				BDD810AC17274A85005C2ECA /* QNDViewAnimationBlockSuppliers.h */,
+				BDD810AD17274A85005C2ECA /* QNDViewAnimationBlockSuppliers.m */,
 			);
 			path = QNDAnimations;
 			sourceTree = "<group>";
@@ -171,6 +178,7 @@
 				BD7C27E417241449009D26EE /* QNDAnimatedViewTest.m */,
 				BD1227A81725DD6A00C56C37 /* QNDViewAnimationTest.m */,
 				BD1227AB1725EF6500C56C37 /* QNDViewAnimationBuilderTest.m */,
+				BDD810B1172759E8005C2ECA /* QNDViewAnimationBlockSupplierTest.m */,
 			);
 			path = QNDAnimationsTests;
 			sourceTree = "<group>";
@@ -300,6 +308,7 @@
 				BD6695E91720B1DB00A81315 /* QNDAnimations.m in Sources */,
 				BD6696421720B4DF00A81315 /* QNDAnimatedView.m in Sources */,
 				BD7C27DC1724056B009D26EE /* QNDAnimatedViewProxy.m in Sources */,
+				BDD810AE17274A85005C2ECA /* QNDViewAnimationBlockSuppliers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +320,7 @@
 				BD7C27E517241449009D26EE /* QNDAnimatedViewTest.m in Sources */,
 				BD1227A91725DD6A00C56C37 /* QNDViewAnimationTest.m in Sources */,
 				BD1227AC1725EF6500C56C37 /* QNDViewAnimationBuilderTest.m in Sources */,
+				BDD810B2172759E8005C2ECA /* QNDViewAnimationBlockSupplierTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

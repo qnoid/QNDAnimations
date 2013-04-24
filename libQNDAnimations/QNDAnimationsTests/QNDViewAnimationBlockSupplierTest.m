@@ -1,10 +1,9 @@
 //
-//  QNDCyclicAnimatedViewController.h
-//  QNDAnimationsApp
+//  QNDViewAnimationBlockSupplierTest.m
+//  QNDAnimations
 //
-//  Created by Markos Charatzas on 19/04/2013.
-//  Copyright (c) 2013 Markos Charatzas (qnoid.com).
-//
+//  Created by Markos Charatzas on 24/04/2013.
+//  Copyright (c) 2013 Markos Charatzas (@qnoid).
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
 //  the Software without restriction, including without limitation the rights to
@@ -25,11 +24,12 @@
 //
 
 
-#import <UIKit/UIKit.h>
-#import "QNDAnimatedView.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@interface QNDCyclicAnimatedViewController : UIViewController
+@interface QNDViewAnimationBlockSupplierTest : SenTestCase
 
-+(instancetype)newViewController;
+@end
+
+@implementation QNDViewAnimationBlockSupplierTest
 
 @end
