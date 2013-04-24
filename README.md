@@ -1,5 +1,5 @@
 # Introduction
-This is an implementation of a UIView that introduces the idea of "rewinding", "toggling" and "forwarding" in animations. 
+An API that introduces the idea of "rewinding", "toggling" and "forwarding" in UIView animations. 
 
 [Discussion][3]
 
@@ -30,7 +30,7 @@ The 'QNDAnimationsApp.xcodeproj' is the .app demoing the QNDAnimatedView.
 # Cocoapods
 
   -> QNDAnimations (2.0)
-   This is an implementation of a UIView that introduces the idea of 'rewinding' in animations.
+   This is an implementation of a UIView that introduces the idea of "rewinding", "toggling" and "forwarding" in animations.
    - Homepage: https://github.com/qnoid/QNDAnimations
    - Source:   https://github.com/qnoid/QNDAnimations.git
    - Versions: 2.0 [master repo]
