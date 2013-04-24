@@ -111,4 +111,12 @@ return self;
     [self.animatedView toggle];
 }
 
+-(NSUInteger)hash{
+    return [self.view hash];
+}
+
+-(BOOL)isEqual:(id)object{
+    return [self.view isEqual:object];
+}
+
 @end
