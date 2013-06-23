@@ -27,6 +27,10 @@
 #import "QNDAnimatedViewProxy.h"
 #import "QNDViewAnimationBlockSuppliers.h"
 
+@interface QNDAnimatedView ()
+-(id)initWithFrame:(CGRect)frame animations:(QNDViewAnimation*)animations;
+@end
+
 @interface QNDAnimatedViewProxy()
 @property(nonatomic, weak) UIView* view;
 @property(nonatomic, strong) UIView<QNDAnimatedView>* animatedView;
@@ -37,7 +41,10 @@
 
 +(UIView<QNDAnimatedView>*)newAnimatedViewProxy:(UIView*)view
 {
-    UIView<QNDAnimatedView>* animatedView = [[QNDAnimatedView alloc] initWithFrame:view.frame];
+    NSObject<QNDViewAnimationBlockSupplier> *supplierWillIjectViewInBlock =
+    [QNDViewAnimationBlockSuppliers of:QNDViewAnimationBlockOnFrame(view.frame) onView:view];
+    
+    UIView<QNDAnimatedView>* animatedView = [[QNDAnimatedView alloc] initWithFrame:view.frame animations:[QNDViewAnimation newViewAnimationBlock:[supplierWillIjectViewInBlock get]]];
     
     id animatedViewProxy = [[QNDAnimatedViewProxy alloc] initWith:view animatedView:animatedView];
     
@@ -48,7 +55,6 @@ return animatedViewProxy;
 {
     self.view = view;
     self.animatedView = animatedView;
-    NSLog(@"%s", __PRETTY_FUNCTION__);
 return self;
 }
 

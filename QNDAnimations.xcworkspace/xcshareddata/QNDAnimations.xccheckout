@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>18BFE152-8A7F-4019-9346-DE7C5937A4F6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>QNDAnimations</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9EFC06BD-4844-4881-BE32-6038DFB0D048</key>
+		<string>ssh://github.com/qnoid/QNDAnimations.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>QNDAnimations.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9EFC06BD-4844-4881-BE32-6038DFB0D048</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/qnoid/QNDAnimations.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9EFC06BD-4844-4881-BE32-6038DFB0D048</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9EFC06BD-4844-4881-BE32-6038DFB0D048</string>
+			<key>IDESourceControlWCCName</key>
+			<string>QNDAnimations</string>
+		</dict>
+	</array>
+</dict>
+</plist>

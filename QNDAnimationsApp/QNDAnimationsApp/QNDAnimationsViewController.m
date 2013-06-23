@@ -88,8 +88,8 @@
 
 -(void)didTouchUpInsideAnimateButton:(UIBarButtonItem*)sender
 {
-    [self.oneWayAnimatedView play];
-    [self.loopAnimatedView play];
+    [self.oneWayAnimatedView toggle];
+    [self.loopAnimatedView toggle];
 }
 
 -(IBAction)didTouchUpInsideOneWayButton:(UIButton*)sender
