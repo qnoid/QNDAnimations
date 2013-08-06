@@ -36,7 +36,7 @@ The 'QNDAnimationsApp.xcodeproj' is the .app demoing the QNDAnimatedView.
    - Versions: 2.0.1, 2.0, 1.0 [master repo]
 
 # Versions
-*2.0.1 Fixed a broken rewind, when an existing view is animated, caused by its initial animation being lost.
+*2.0.1 Fixed a broken rewind, when an existing view is animated, caused by its initial animation being lost.  
 2.0 Augment existing UIView(s). Additional support for "forwarding" and "looping" animations.  
 1.0 initial version. Support for "rewind" and "toggle" animations.
 
