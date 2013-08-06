@@ -29,14 +29,15 @@ The 'QNDAnimationsApp.xcodeproj' is the .app demoing the QNDAnimatedView.
 
 # Cocoapods
 
-  -> QNDAnimations (2.0)
+  -> QNDAnimations (2.0.1)
    This is an implementation of a UIView that introduces the idea of "rewinding", "toggling" and "forwarding" in animations.
    - Homepage: https://github.com/qnoid/QNDAnimations
    - Source:   https://github.com/qnoid/QNDAnimations.git
-   - Versions: 2.0 [master repo]
+   - Versions: 2.0.1, 2.0, 1.0 [master repo]
 
 # Versions
-*2.0 Augment existing UIView(s). Additional support for "forwarding" and "looping" animations.  
+*2.0.1 Fixed a broken rewind, when an existing view is animated, caused by its initial animation being lost.
+2.0 Augment existing UIView(s). Additional support for "forwarding" and "looping" animations.  
 1.0 initial version. Support for "rewind" and "toggle" animations.
 
 # How to use
