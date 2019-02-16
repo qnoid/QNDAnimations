@@ -1,3 +1,11 @@
+# Notice
+
+Archived - Hasn't been maintained in 6 years
+
+Preserved as reference material
+
+* * * 
+
 # Introduction
 An API that introduces the idea of "rewinding", "toggling" and "forwarding" in UIView animations. 
 
